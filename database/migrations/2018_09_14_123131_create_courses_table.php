@@ -15,12 +15,12 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable(true);
-            $table->string('reference')->nullable(true);
-            $table->integer('accreditationId')->nullable(true);
-            $table->string('code',50)->nullable(true);
-            $table->tinyInteger('duration')->nullable(true);
-            $table->tinyInteger('durationGlobal')->nullable(true);
+            $table->string('name')->nullable(true)->default(NULL);
+            $table->string('reference')->nullable(true)->default(NULL);
+            $table->integer('accreditationId')->nullable(true)->default(NULL);
+            $table->string('code',50)->nullable(true)->default(NULL);
+            $table->tinyInteger('duration')->nullable(true)->default(NULL);
+            $table->tinyInteger('durationGlobal')->nullable(true)->default(NULL);
             $table->tinyInteger('examIncluded')->default(0);
             $table->double('examPrice');
             $table->tinyInteger('isModule')->default(0);
@@ -28,9 +28,9 @@ class CreateCoursesTable extends Migration
             $table->tinyInteger('isOnline')->default(0);
             $table->tinyInteger('isVirtual')->default(0);
             $table->string('preReq')->nullable(true);
-            $table->string('preCourseReading',50)->nullable(true);
-            $table->double('pdu')->nullable(true);
-            $table->integer('topicId')->nullable(true);
+            $table->string('preCourseReading',50)->nullable(true)->default(NULL);
+            $table->double('pdu')->nullable(true)->default(NULL);
+            $table->integer('topicId')->nullable(true)->default(NULL);
 
             $table->timestamps();
         });

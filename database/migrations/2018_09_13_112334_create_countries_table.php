@@ -15,21 +15,21 @@ class CreateCountriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',255)->nullable();
-            $table->char('countryCode', 3)->nullable();
+            $table->string('name',255)->nullable(true)->default(NULL);
+            $table->char('countryCode', 3)->nullable(true)->default(NULL);
             $table->text('countryDesc');
-            $table->char('iso3', 3)->nullable();
-            $table->char('currency', 3)->nullable();
-            $table->string('currencySymbol',5)->nullable();
-            $table->string('currencySymbolHTML',5)->nullable();
-            $table->string('currencyTitle',5)->nullable();
-            $table->tinyInteger('allowPO')->nullable();
-            $table->tinyInteger('chargeVAT')->nullable();
-            $table->string('salesTaxLabel',10)->nullable();
-            $table->double('exchangeRate')->nullable();
-            $table->double('salesRatio')->nullable();
-            $table->double('vatAmount')->nullable();
-            $table->double('vatAmountElearning')->nullable();
+            $table->char('iso3', 3)->nullable(true)->default(NULL);
+            $table->char('currency', 3)->nullable(true)->default(NULL);
+            $table->string('currencySymbol',5)->nullable(true)->default(NULL);
+            $table->string('currencySymbolHTML',5)->nullable(true)->default(NULL);
+            $table->string('currencyTitle',5)->nullable(true)->default(NULL);
+            $table->tinyInteger('allowPO')->nullable(true)->default(NULL);
+            $table->tinyInteger('chargeVAT')->nullable(true)->default(NULL);
+            $table->string('salesTaxLabel',10)->nullable(true)->default(NULL);
+            $table->double('exchangeRate')->nullable(true)->default(NULL);
+            $table->double('salesRatio')->nullable(true)->default(NULL);
+            $table->double('vatAmount')->nullable(true)->default(NULL);
+            $table->double('vatAmountElearning')->nullable(true)->default(NULL);
             $table->timestamps();
         });
     }

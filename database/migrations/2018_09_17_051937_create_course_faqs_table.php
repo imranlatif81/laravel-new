@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCountryOpeningDaysTable extends Migration
+class CreateCourseFaqsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateCountryOpeningDaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('country_opening_days', function (Blueprint $table) {
+        Schema::create('course_faqs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',200)->nullable(true)->default(NULL);
+            $table->unsignedInteger('courseId');
+            $table->text('question');
+            $table->text('answer');
+            $table->foreign('courseId')->references('id')->on('courses')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateCountryOpeningDaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('country_opening_days');
+        Schema::dropIfExists('course_faqs');
     }
 }
